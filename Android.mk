@@ -1,4 +1,4 @@
-#LOCAL_PATH:= $(call my-dir)
+LOCAL_PATH:= $(call my-dir)
 include $(CLEAR_VARS)
 
 LOCAL_MODULE_TAGS := optional
@@ -31,6 +31,12 @@ src_dirs += \
     $(phone_common_dir)/src-N
 
 LOCAL_SRC_FILES := $(call all-java-files-under, $(src_dirs)) $(call all-Iaidl-files-under, $(src_dirs))
+LOCAL_SRC_FILES += src/org/codeaurora/presenceserv/IPresenceService.aidl \
+                    src/org/codeaurora/presenceserv/IPresenceServiceCB.aidl \
+                   ../../providers/ContactsProvider/src/com/android/providers/contacts/NameSplitter.java \
+                   ../../providers/ContactsProvider/src/com/android/providers/contacts/HanziToPinyin.java \
+                   ../../providers/ContactsProvider/src/com/android/providers/contacts/util/NeededForTesting.java
+
 LOCAL_RESOURCE_DIR := $(addprefix $(LOCAL_PATH)/, $(res_dirs)) \
     $(support_library_root_dir)/v7/cardview/res \
     $(support_library_root_dir)/v7/recyclerview/res \
